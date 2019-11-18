@@ -9,5 +9,5 @@ export const PubSub = new PostgresPubSub({
 });
 
 PubSub.subscribe("error", err => {
-  console.log("@@@ PubSub Error:", err);
+  console.log("@@@@ PubSub Error:", err);
 });
