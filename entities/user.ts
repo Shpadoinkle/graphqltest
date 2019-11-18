@@ -51,6 +51,9 @@ export class User {
   @Field({ nullable: true })
   @Column({ nullable: true })
   email: string;
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  CHOOCHOO: string;
 
   @Field(type => String)
   get firstName(): string {
