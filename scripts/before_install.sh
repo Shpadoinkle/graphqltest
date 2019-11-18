@@ -7,7 +7,8 @@
 
 # Install forever module 
 # https://www.npmjs.com/package/forever
-npm install forever -g
+ls
+
 
 # Clean working folder
 # sudo find /home/ubuntu/test -type f -delete
