@@ -3,5 +3,6 @@
 [ -s "/.nvm/nvm.sh" ] && \. "/.nvm/nvm.sh"
 cd /var/www/html/website
 echo yesss
-nohup npm build
+npm build
+wait
 nohup npm start
