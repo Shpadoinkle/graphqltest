@@ -1,9 +1,10 @@
 #!/bin/bash
 ​
+[ -s "/.nvm/nvm.sh" ] && \. "/.nvm/nvm.sh"
 
-cd /var/www/html/website
-echo yesss
-sudo apt-get update
+# echo yesss
+apt-get update
 sudo apt-get install nodejs -y
+cd /var/www/html/website
 npm --v
 npm run build
