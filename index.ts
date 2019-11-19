@@ -121,6 +121,7 @@ async function bootstrap() {
         }
       }
     });
+    //Test elastic
 
     const router = new Router();
     app.use(router.routes());
