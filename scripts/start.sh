@@ -4,6 +4,6 @@
 
 # echo yesss
 cd /var/www/html/website
-npm install
+npm install --unsafe-perm=true --allow-root
 npm --v
 npm run build
