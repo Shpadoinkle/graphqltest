@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/bash 
 ​
 [ -s "/.nvm/nvm.sh" ] && \. "/.nvm/nvm.sh"
 
-# echo yesss
+# echo yessss
 cd /var/www/html/website
 
 npm install --unsafe-perm=true --allow-root
