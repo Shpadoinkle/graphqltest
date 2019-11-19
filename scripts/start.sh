@@ -8,3 +8,4 @@ cd /var/www/html/website
 npm install --unsafe-perm=true --allow-root
 npm --v
 npm run build
+nohup npm start > /dev/null 2>&1 &
