@@ -4,5 +4,3 @@
 cd /var/www/html/website
 echo yesss
 npm run build
-
-nohup npm start > /dev/null 2>&1 &
