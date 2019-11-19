@@ -2,21 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/testdeploy
+    destination: /var/www/html/website #where to store the artifacts
 hooks:
-  BeforeInstall:
-    - location: scripts/before_install.sh
-      timeout: 300
-      runas: ubuntu
-  # During the AfterInstall deployment lifecycle event, run the commands
-  #   in the script specified in "location".
-  # AfterInstall:
-  #   - location: scripts/after_install.sh
-  #     timeout: 300
-  #     runas: ubuntu
-  # During the ApplicationInstall deployment lifecycle event, run the commands
-  #   in the script specified in "location".
   ApplicationStart:
-    - location: scripts/application_start.sh
+    - location: scripts/start.sh
       timeout: 300
-      runas: ubuntu
+      runas: ec2-user
