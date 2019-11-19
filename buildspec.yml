@@ -5,7 +5,7 @@ phases:
       nodejs: 10
     commands:
       - echo Running npm install
-      - npm install # run npm install to install all dependencies
+      # - npm install # run npm install to install all dependencies
 artifacts:
   files:
     - "**/*" #copy all build files to S3 location
