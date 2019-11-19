@@ -3,4 +3,4 @@
 [ -s "/.nvm/nvm.sh" ] && \. "/.nvm/nvm.sh"
 cd /var/www/html/website
 echo yesss
-npm build
+nohup npm build
