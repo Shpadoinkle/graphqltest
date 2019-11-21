@@ -42,21 +42,11 @@ export class User {
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  fbId: string;
-
-  @Field({ nullable: true })
-  @Column({ nullable: true })
-  appleId: string;
-
-  @Field({ nullable: true })
-  @Column({ nullable: true })
   email: string;
-  @Field({ nullable: true })
-  @Column({ nullable: true })
-  CHOOCHOO: string;
-  @Field({ nullable: true })
-  @Column({ nullable: true })
-  BUMBIM: string;
+
+  @Field({ nullable: false })
+  @Column({ nullable: false, default: false })
+  emailConfirmed: boolean;
 
   @Field(type => String)
   get firstName(): string {
@@ -74,54 +64,6 @@ export class User {
   @Column({ nullable: true })
   password: string;
 
-  // @Field(type => Image, {nullable: true})
-  // @OneToOne(type => Image, {lazy: true})
-  // @JoinColumn()
-  // avatar?: Lazy<Image>
-
-  @Column({ nullable: true })
-  identityType?: string;
-
-  // @Field(type => [PrivateImage], {nullable: true})
-  // @ManyToMany(type => PrivateImage, {lazy: true})
-  // @JoinTable()
-  // identity?: Lazy<PrivateImage[]>
-
-  // @Field(type => IdentityStatus, {nullable: true})
-  // @Column('enum', {
-  //   enum: IdentityStatus,
-  //   nullable: false,
-  //   default: IdentityStatus.UnSubmitted,
-  // })
-  // identityStatus: IdentityStatus
-
-  // @Field(type => Household, {nullable: true})
-  // @ManyToOne(type => Household, {lazy: true})
-  // household: Lazy<Household>
-
-  // @Field(type => [Event], {nullable: true})
-  // @OneToMany(type => Event, event => event.owner, {
-  //   lazy: true,
-  // })
-  // events: Lazy<Event[]>
-
-  // @Field(type => [Image])
-  // @ManyToMany(type => Image, {lazy: true})
-  // @JoinTable()
-  // images: Lazy<Image[]>
-
-  /**
-   * Other stuff
-   */
-
-  @Field({ nullable: false })
-  @Column({ nullable: false, default: false })
-  emailConfirmed: boolean;
-
-  @Field({ nullable: true })
-  @Column({ nullable: true })
-  code: string;
-
   @Field({ nullable: true })
   @Column({ nullable: true })
   passwordCode: string;
@@ -129,14 +71,6 @@ export class User {
   @Field({ nullable: true })
   @Column({ nullable: true })
   pushToken: string;
-
-  // @Field({nullable: false})
-  // @Column({nullable: false, default: false})
-  // blocked: boolean
-
-  // @Field({nullable: false})
-  // @Column({nullable: false, default: false})
-  // isAdmin: boolean
 
   @Field()
   @CreateDateColumn({ type: "timestamp with time zone" })

@@ -22,10 +22,8 @@ import { Context } from "../types/context";
 @Resolver(User)
 export class UserResolver {
   constructor(
-    @InjectRepository(User) private readonly userRepository: Repository<User>
-  ) // @InjectRepository(Image)
-  // private readonly imageRepository: Repository<Image>,
-  // @InjectRepository(PrivateImage)
+    @InjectRepository(User) private readonly userRepository: Repository<User> // @InjectRepository(Image) // private readonly imageRepository: Repository<Image>,
+  ) // @InjectRepository(PrivateImage)
   // private readonly privateImageRepository: Repository<PrivateImage>
   {}
 
