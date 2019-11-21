@@ -1,10 +1,10 @@
 import { PostgresPubSub } from "graphql-postgres-subscriptions";
 
 export const PubSub = new PostgresPubSub({
-  user: "postgres",
-  host: "test1.cprw2mvph38r.ap-southeast-2.rds.amazonaws.com",
-  database: "table1",
-  password: "gweggweg",
+  user: process.env.DATABASE_USERNAME,
+  host: process.env.DATABASE_HOST,
+  database: process.env.DATABASE_NAME,
+  password: process.env.DATABASE_PASSWORD,
   port: 5432
 });
 

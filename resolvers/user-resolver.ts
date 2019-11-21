@@ -22,9 +22,8 @@ import { Context } from "../types/context";
 @Resolver(User)
 export class UserResolver {
   constructor(
-    @InjectRepository(User) private readonly userRepository: Repository<User> // @InjectRepository(Image) // private readonly imageRepository: Repository<Image>,
-  ) // @InjectRepository(PrivateImage)
-  // private readonly privateImageRepository: Repository<PrivateImage>
+    @InjectRepository(User) private readonly userRepository: Repository<User> // @InjectRepository(Image) // private readonly imageRepository: Repository<Image>, // @InjectRepository(PrivateImage)
+  ) // private readonly privateImageRepository: Repository<PrivateImage>
   {}
 
   /**
@@ -38,5 +37,39 @@ export class UserResolver {
       return null;
     }
     return this.userRepository.findOne(ctx.user.id);
+  }
+
+  @Mutation(returns => String, { nullable: false })
+  async login(@Arg("email") email: String, @Arg("password") password: String) {
+    const user = await this.userRepository.findOne({
+      where: {
+        email: email.trim().toLowerCase()
+      }
+    });
+
+    console.log("user", user);
+
+    if (!user) {
+      throw new Error("No account found with those details");
+    }
+
+    // if (!user.emailConfirmed) {
+    //   throw new Error('Please confirm your account before logging in')
+    // }
+
+    if (!user.password) {
+      throw new Error("Please login using facebook");
+    }
+
+    const match = await compare(password, user.password);
+
+    if (match === true) {
+      const token = sign({ user }, process.env.JWT_SECRET, {
+        noTimestamp: true
+      });
+      return token;
+    } else {
+      throw new Error("Those login details are incorrect");
+    }
   }
 }

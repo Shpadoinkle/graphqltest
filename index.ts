@@ -43,11 +43,11 @@ async function bootstrap() {
     // create TypeORM connection
     await TypeORM.createConnection({
       type: "postgres",
-      database: "table1",
-      username: "postgres",
-      password: "gweggweg",
+      database: process.env.DATABASE_NAME,
+      username: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
       port: 5432,
-      host: "test1.cprw2mvph38r.ap-southeast-2.rds.amazonaws.com",
+      host: process.env.DATABASE_HOST,
       entities: [User],
       subscribers: [],
       synchronize: true,
@@ -84,10 +84,7 @@ async function bootstrap() {
         let token = authorization.replace("Bearer:", "").trim();
 
         try {
-          let { user } = await jwt.verify(
-            token,
-            "rtn0UNX8qKlLgWJKxTW0vO5tvW94sljI27ISB30p22tET83If38JpCOqBgGP3g1QW"
-          );
+          let { user } = await jwt.verify(token, process.env.JWT_SECRET);
           const ctx: Context = { user };
           return ctx;
         } catch (err) {
